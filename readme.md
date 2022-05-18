@@ -4,6 +4,7 @@
 
 参考ページ：https://tech-diary.net/flask-introduction/
 
+![](./GIFアニメ.gif)
 ## 事前に必要なインストール
 - Python
 
@@ -18,7 +19,7 @@
     ここ参照：https://tech-diary.net/flask-introduction/#index_id24
 
     ダウンロードして展開したら、cssフォルダを　[staticフォルダ](./static)　以下にコピーして終わり
-    
+
 ## 仮想環境使う場合
 
 ディレクトリを作り（dev01）作ったディレクリに対して以下実行する
