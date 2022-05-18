@@ -10,7 +10,7 @@
         </div>    
             <ul class="list-group list-group-flush">
                 <li class="list-group-item list-group-item-warning">入院開始日：{{ post["Encounter"][0]}}　入院終了日：{{post["Encounter"][1]}}</li>
-                <li class="list-group-item list-group-item-warning">処方データ：{{post["MedicationRequest"][0]}}　{{post["MedicationRequest"][4]}} から {{post["MedicationRequest"][1]}} 日分出ています</li>
+                <li class="list-group-item list-group-item-warning">処方データ：{{post["MedicationRequest"][0]}}　処方オーダー日付は、{{post["MedicationRequest"][4]}} です。{{post["MedicationRequest"][1]}} 日分出ています</li>
                 <li class="list-group-item list-group-item-warning">病名：{{post["Condition"][0]}}</li>
                 <li class="list-group-item list-group-item-warning">ケアプラン：{{post["CarePlan"][0]}}　より　{{post["CarePlan"][1]}}</li>
 

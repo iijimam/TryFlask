@@ -16,9 +16,10 @@
             <h2 class="card-title">
                 処方番号：{{morder[0]}}
             </h2>
-            <p>服用開始日：{{ morder[10] }}</p>
-            <p>薬剤名：{{ morder[8] }}</p>
-            <p>{{ morder[6] }}日分</p>
+            <p>処方日付：{{ morder[7] }}</p>
+            <p>薬剤名：{{ morder[11] }}</p>
+            <p>1回 {{morder[5]}} {{morder[4]}}　／ 1日 {{morder[6]}}回</p>
+            <p>{{ morder[9] }}日分</p>
             <a class="btn btn-success btn-sm" href="/select/{{post[0].DocNumber}}/{{post[0].PatientNumber}}/{{post[0].EncounterNumber}}/{{morder[0]}}" role="button">この処方を選択</a>
         
         </div>

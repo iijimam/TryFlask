@@ -40,14 +40,16 @@ def getEncounter(docid,pid):
 
 def getMedicationRequest(docid,pid):
     import iris
-    sql="SELECT OrderNumber, PatientNumber, DoctorNumber, UnitCode, Unit, TotalAmountDispence, TotalDaysDispence, MedicationCode,MedicationName, Period, StartDate, RouteCode, Route"\
+    sql="SELECT OrderNumber, PatientNumber, DoctorNumber, UnitCode,Unit,"\
+        +"SingleDose,DailyNumOfTimes,MedicationOrderDate,TotalAmountDispence, TotalDaysDispence,"\
+        +"MedicationCode,MedicationName, Period, StartDate, RouteCode, Route"\
         +" FROM ISJ.MedicationRequest"\
         +" where (DoctorNumber=?) and (PatientNumber=?) and (Category=1) order by StartDate desc"
     stmt=iris.sql.prepare(sql)
     rset=stmt.execute(docid,pid)
     records=[]
     for cn,reco in enumerate(rset):
-        reco[10]=iris.system.SQL.TOCHAR(reco[10],"YYYY-MM-DD")
+        reco[7]=iris.system.SQL.TOCHAR(reco[7],"YYYY-MM-DD")
         records.append(reco)
     return records
 
@@ -63,7 +65,7 @@ def getConfirmData(docid,pid,encid,moid):
         plist=reco[1]
     
     #処方データの取得
-    sql="select MedicationName,Period,Unit,Route,StartDate,TotalAmountDispence,OrderNumber FROM ISJ.MedicationRequest where PatientNumber=? AND DoctorNumber=? AND OrderNumber=?"
+    sql="select MedicationName,Period,Unit,Route,MedicationOrderDate,SingleDose,DailyNumOfTimes,TotalAmountDispence,OrderNumber FROM ISJ.MedicationRequest where PatientNumber=? AND DoctorNumber=? AND OrderNumber=?"
     stmt=iris.sql.prepare(sql)
     rset=stmt.execute(pid,docid,moid)
     #mlist=[]
