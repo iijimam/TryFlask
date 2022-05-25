@@ -55,6 +55,17 @@ def select(docid,pid,encid,moid):
     print(post)
     return render_template("confirm.html",post=post)
 
+@app.route('/callproduction/<string:pid>/<string:docid>/<string:encid>/<string:moid>', methods=['GET'])
+def callproduction(pid,docid,encid,moid):
+    #IRISに情報を渡す
+    import requests
+    url="http://127.0.0.1:52776/facade/request/"+pid+"/"+docid+"/"+encid+"/"+moid
+    print(url)
+    apihead={"Content-Type":"application/json;charset=utf-8"}
+    ret = requests.post(url,headers=apihead)
+    print(ret.json())
+    return render_template("end.html",post=ret.json)
+
 
 if __name__=="__main__":
     app.run(debug=True)

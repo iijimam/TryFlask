@@ -20,7 +20,7 @@
                 </li>
             {% endfor %}
             <li class="list-group-item list-group-item-warning">
-                <a class="btn btn-success btn-sm" href="/select/DC001/{{ post["Patient"][2] }}/{{ post["Encounter"][2] }}/{{post["Condition"][2]}}/{{post["Allergy"][0][3]}}/{{post["MedicationRequest"][6]}}/{{post["CarePlan"][2]}}" role="button">作成開始</a>
+                <a class="btn btn-success btn-sm" href="/callproduction/{{ post["Patient"][2] }}/DC001/{{ post["Encounter"][2] }}/{{post["MedicationRequest"][8]}}" role="button">作成開始</a>
                 <a class="btn btn-secondary btn-sm" href="/">最初からやり直り</a>
             </li>
             </ul>     
